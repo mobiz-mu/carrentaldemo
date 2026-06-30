@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { SITE } from "@/lib/constants";
+import SocialMediaRail from "@/components/SocialMediaRail";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -51,6 +52,7 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth">
       <body className="flex min-h-screen flex-col bg-white text-ink antialiased">
         <Header />
+        <SocialMediaRail />
         <main className="flex-1">{children}</main>
         <Footer />
         <FloatingWhatsApp />
