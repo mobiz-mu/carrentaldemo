@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Mobiz Car Rental — Design tokens
+   Premium / luxury car rental, Mauritius.
+   White background, dark navy ink, champagne gold accent.
+   ============================================================ */
+@theme {
+  --color-ink: #0b1220;
+  --color-ink-soft: #1d2738;
+  --color-navy: #122a45;
+  --color-navy-deep: #0e2138;
+  --color-gold: #c6a15b;
+  --color-gold-deep: #a8843d;
+  --color-gold-soft: #e7d6ad;
+  --color-sand: #f6f3ec;
+  --color-sand-deep: #efe9dc;
+  --color-line: #e7e3d9;
+  --color-line-dark: #243349;
+  --color-danger: #c0392b;
+  --color-success: #1f7a4d;
+
+  --font-display: Georgia, "Times New Roman", "Times", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+
+  --radius: 0.5rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0b1220;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Display type helper */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Eyebrow label — gold, tracked, small caps feel */
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+}
+
+/* License-plate motif — the signature element (Mauritius plates) */
+.plate {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: #fff;
+  color: var(--color-ink);
+  border: 1.5px solid var(--color-ink);
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 2px #fff, 0 1px 0 rgba(0, 0, 0, 0.04);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1;
+}
+.plate::before {
+  content: "MU";
+  font-size: 0.6em;
+  background: var(--color-navy);
+  color: var(--color-gold-soft);
+  padding: 0.35em 0.3em;
+  border-radius: 2px 0 0 2px;
+  margin: -0.05em 0 -0.05em -0.05em;
+  letter-spacing: 0.05em;
+}
+
+/* Thin gold rule */
+.rule-gold {
+  height: 2px;
+  width: 3rem;
+  background: linear-gradient(
+    90deg,
+    var(--color-gold),
+    var(--color-gold-soft)
+  );
+  border-radius: 2px;
+}
+
+/* Focus visibility for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-gold-deep);
+  outline-offset: 2px;
+}
+
+/* Subtle fade-up on load for hero pieces */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Hide number input spinners */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
